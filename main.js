@@ -11,8 +11,6 @@ let computerChoice = function getComputerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
-    console.log(playerSelection)
-    console.log(computerSelection)
     if(playerSelection === computerSelection){
         return `its a tie ${playerSelection} === ${computerSelection}`
     }else if(playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" & computerSelection === "rock"){
@@ -40,17 +38,20 @@ function game() {
         }
     }
     if(playerWin === playerLose){
+        console.log(`you got ${playerWin}`)
+        console.log(`you lost ${playerLose}`)
         console.log("Its a tie")
+        console.log(`${tie} draws`)
     }else if(playerWin > playerLose){
         console.log(`you got ${playerWin}`)
         console.log(`you lost ${playerLose}`)
         console.log("You win")
+        console.log(`${tie} draws`)
     }else{
         console.log(`you got ${playerWin}`)
         console.log(`you lost ${playerLose}`)
         console.log("You Lose")
-    }
-    console.log(`${tie} draws`)
+        console.log(`${tie} draws`)
 }
 
 game()
