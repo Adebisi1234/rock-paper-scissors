@@ -1,4 +1,4 @@
-function getComputerChoice() {
+let computerChoice = function getComputerChoice() {
     const random = Math.random()
     if(random < 0.33){
         return "rock"
@@ -9,11 +9,10 @@ function getComputerChoice() {
     }
 }
 
-function playerChoice() {
-    prompt("Enter You choice:")
-}
 
 function playRound(playerSelection, computerSelection) {
+    console.log(computerChoice())
+    console.log(playerSelection)
     if(playerSelection === computerSelection){
         return "its a tie"
     }else if(playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" & computerSelection === "rock"){
@@ -27,7 +26,7 @@ function game() {
     let playerWin = 0
     let playerLose = 0;
     for(let i = 0; i <= 5; i++){
-        let run = playRound(playerChoice(), getComputerChoice())
+        let run = playRound(String(prompt("Enter your choice")), computerChoice)
         if(run === "You win"){
             playerWin += 1
         }else if(run === "You Lose"){
@@ -37,8 +36,12 @@ function game() {
     if(playerWin === playerLose){
         console.log("Its a tie")
     }else if(playerWin > playerLose){
+        console.log(playerWin)
+        console.log(playerLose)
         console.log("You win")
     }else{
+        console.log(playerWin)
+        console.log(playerLose)
         console.log("You Lose")
     }
 }
