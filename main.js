@@ -27,7 +27,7 @@ function game() {
     let playerLose = 0;
     let tie = 0
     for(let i = 0; i < 5; i++){
-        let run = playRound(String(prompt("Enter your choice")), computerChoice())
+        let run = playRound(String(prompt("Enter your choice")).toLowerCase(), computerChoice())
         if(run.includes("You win")){
             console.log(run)
             playerWin += 1
