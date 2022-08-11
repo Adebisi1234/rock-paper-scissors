@@ -52,6 +52,7 @@ function game() {
         console.log(`you lost ${playerLose}`)
         console.log("You Lose")
         console.log(`${tie} draws`)
+    }
 }
 
 game()
