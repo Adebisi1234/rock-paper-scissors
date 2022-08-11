@@ -25,12 +25,15 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerWin = 0
     let playerLose = 0;
+    let tie = 0
     for(let i = 0; i <= 5; i++){
-        let run = playRound(String(prompt("Enter your choice")), computerChoice)
+        let run = playRound(String(prompt("Enter your choice")), computerChoice())
         if(run === "You win"){
             playerWin += 1
         }else if(run === "You Lose"){
             playerLose += 1
+        }else if(run === "its a tie"){
+            tie += 1
         }
     }
     if(playerWin === playerLose){
@@ -44,6 +47,7 @@ function game() {
         console.log(playerLose)
         console.log("You Lose")
     }
+    console.log(tie)
 }
 
 game()
