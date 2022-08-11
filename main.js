@@ -11,14 +11,14 @@ let computerChoice = function getComputerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
-    console.log(computerChoice())
     console.log(playerSelection)
+    console.log(computerSelection)
     if(playerSelection === computerSelection){
-        return "its a tie"
+        return `its a tie ${playerSelection} === ${computerSelection}`
     }else if(playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" & computerSelection === "rock"){
-        return "You win"
+        return `You win ${playerSelection} beats ${computerSelection}` 
     }else {
-        return "You Lose"
+        return `You Lose ${playerSelection} lost to ${computerSelection}`
     }
 }
 
@@ -26,28 +26,31 @@ function game() {
     let playerWin = 0
     let playerLose = 0;
     let tie = 0
-    for(let i = 0; i <= 5; i++){
+    for(let i = 0; i < 5; i++){
         let run = playRound(String(prompt("Enter your choice")), computerChoice())
-        if(run === "You win"){
+        if(run.includes("You win")){
+            console.log(run)
             playerWin += 1
-        }else if(run === "You Lose"){
+        }else if(run.includes("You Lose")){
+            console.log(run)
             playerLose += 1
-        }else if(run === "its a tie"){
+        }else if(run.includes("its a tie")){
+            console.log(run)
             tie += 1
         }
     }
     if(playerWin === playerLose){
         console.log("Its a tie")
     }else if(playerWin > playerLose){
-        console.log(playerWin)
-        console.log(playerLose)
+        console.log(`you got ${playerWin}`)
+        console.log(`you lost ${playerLose}`)
         console.log("You win")
     }else{
-        console.log(playerWin)
-        console.log(playerLose)
+        console.log(`you got ${playerWin}`)
+        console.log(`you lost ${playerLose}`)
         console.log("You Lose")
     }
-    console.log(tie)
+    console.log(`${tie} draws`)
 }
 
 game()
