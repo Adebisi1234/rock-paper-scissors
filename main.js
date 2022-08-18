@@ -5,7 +5,6 @@ const rock = document.querySelector('#rock')
 const scissors = document.querySelector('#scissors')
 const paper = document.querySelector("#paper")
 const add = document.querySelector('h2')
-let round = 0
 let playerWon = 0
 let computerWon = 0
 let playerChoice
@@ -42,7 +41,7 @@ scissors.addEventListener('click', scissorsStart)
 
 function rockStart() {
     playerChoice = 'rock'
-    if(round >= 5){
+    if(playerWon >= 5 || computerWon >= 5){
         if(playerWon > computerWon){
             div.innerText = `Game over You Won`
         }else {
@@ -53,12 +52,11 @@ function rockStart() {
         div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
         computerScore.innerText = `computerScore: ${computerWon}`
-        round += 1
     }   
 }
 function paperStart() {
     playerChoice = 'paper'
-    if(round === 5){
+    if(playerWon >= 5 || computerWon >= 5){
         if(playerWon > computerWon){
             div.innerText = `Game over You Won`
         }else {
@@ -69,12 +67,11 @@ function paperStart() {
         div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
         computerScore.innerText = `computerScore: ${computerWon}`
-        round += 1
     }
 }
 function scissorsStart() {
     playerChoice = 'scissors'
-    if(round === 5){
+    if(playerWon >= 5 || computerWon >= 5){
         if(playerWon > computerWon){
             div.innerText = `Game over You Won`
         }else {
@@ -85,7 +82,6 @@ function scissorsStart() {
         div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
         computerScore.innerText = `computerScore: ${computerWon}`
-        round += 1
     }
 }
 
@@ -95,7 +91,6 @@ add.addEventListener('click', restart)
 function restart() {
     playerWon = 0
     computerWon = 0
-    round = 0
     playerChoice
     playerScore.innerText = `playerScore: ${playerWon}`
     computerScore.innerText = `computerScore: ${computerWon}`
