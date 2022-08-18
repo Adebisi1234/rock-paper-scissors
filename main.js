@@ -25,11 +25,9 @@ function playRound(playerSelection, computerSelection) {
         return `its a tie ${playerSelection} === ${computerSelection}`
     }else if(playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" & computerSelection === "rock"){
         playerWon += 1
-        console.log(playerWon)
         return `You win ${playerSelection} beats ${computerSelection}` 
     }else if(computerSelection === "rock" &&playerSelection === "scissors" || computerSelection === "scissors" &&playerSelection === "paper" || computerSelection === "paper" &playerSelection === "rock") {
         computerWon += 1
-        console.log(computerWon)
         return `You Lose ${playerSelection} lost to ${computerSelection}`
     }
 }
