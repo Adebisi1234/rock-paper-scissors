@@ -1,35 +1,21 @@
+const playerScore = document.querySelector('#player')
+const computerScore = document.querySelector('#computer')
+const div = document.querySelector('div')
+const rock = document.querySelector('#rock')
+const scissors = document.querySelector('#scissors')
+const paper = document.querySelector("#paper")
+const add = document.querySelector('h2')
 let round = 0
 let playerWon = 0
 let computerWon = 0
 let playerChoice
-const playerScore = document.querySelector('#player')
-const computerScore = document.querySelector('#computer')
+
+
 playerScore.innerText = `playerScore: ${playerWon}`
 computerScore.innerText = `computerScore: ${computerWon}`
-let add = document.querySelector('h2')
 
-add.addEventListener('click', start)
 
-function start() {
-    playerWon = 0
-    computerWon = 0
-    round = 0
-    playerChoice
-    playerScore.innerText = `playerScore: ${playerWon}`
-    computerScore.innerText = `computerScore: ${computerWon}`
-    div.innerText = ''
-}
-// Random computer Choices
-function getComputerChoice() {
-    const random = Math.random()
-    if(random < 0.33){
-        return "rock"
-    }else if(random < .66){
-        return "paper"
-    }else {
-        return "scissors"
-    }
-}
+// Functionality
 
 
 function playRound(playerSelection, computerSelection) {
@@ -50,12 +36,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 
-const div = document.querySelector('div')
-const rock = document.querySelector('#rock')
-const scissors = document.querySelector('#scissors')
-const paper = document.querySelector("#paper")
-
-
+// Running the game
 
 rock.addEventListener('click', rockStart)
 paper.addEventListener('click', paperStart)
@@ -64,12 +45,12 @@ scissors.addEventListener('click', scissorsStart)
 function rockStart() {
     playerChoice = 'rock'
     if(round >= 5){
-        if(add ===' <div id="add"></div>'){
-            console.log('fucked')
+        if(playerWon > computerWon){
+            div.innerText = `Game over You Won`
         }else {
-            console.log('fucker')
-            add.innerText = 'Restart'
+            div.innerText = `Game over You Lost`
         }
+        add.innerText = 'RESTART'
     }else {
         div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
@@ -80,15 +61,12 @@ function rockStart() {
 function paperStart() {
     playerChoice = 'paper'
     if(round === 5){
-        div.innerText = `Game over ${playerWon} vs ${computerWon}`
-
-        if(add ===' <div id="add"></div>'){
-            console.log('fuck')
+        if(playerWon > computerWon){
+            div.innerText = `Game over You Won`
         }else {
-            console.log('fuckede')
-            add.innerText = 'Restart'
+            div.innerText = `Game over You Lost`
         }
-        
+        add.innerText = 'RESTART'
     }else {
         div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
@@ -99,13 +77,12 @@ function paperStart() {
 function scissorsStart() {
     playerChoice = 'scissors'
     if(round === 5){
-    div.innerText = `Game over ${playerWon} vs ${computerWon}`
-    if(add ===' <div id="add"></div>'){
-        console.log('fuck')
-    }else {
-        console.log('fuckede')
-        add.innerText = 'Restart'
-    }
+        if(playerWon > computerWon){
+            div.innerText = `Game over You Won`
+        }else {
+            div.innerText = `Game over You Lost`
+        }
+        add.innerText = 'RESTART'
     }else {
         div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
@@ -113,3 +90,37 @@ function scissorsStart() {
         round += 1
     }
 }
+
+
+// restarting the game
+add.addEventListener('click', restart)
+function restart() {
+    playerWon = 0
+    computerWon = 0
+    round = 0
+    playerChoice
+    playerScore.innerText = `playerScore: ${playerWon}`
+    computerScore.innerText = `computerScore: ${computerWon}`
+    div.innerText = ''
+    add.innerText = 'May the force guide you'
+}
+// Random computer Choices
+function getComputerChoice() {
+    const random = Math.random()
+    if(random < 0.33){
+        return "rock"
+    }else if(random < .66){
+        return "paper"
+    }else {
+        return "scissors"
+    }
+}
+
+
+
+
+
+
+
+
+
