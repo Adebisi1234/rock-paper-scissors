@@ -4,7 +4,22 @@ let computerWon = 0
 let playerChoice
 const playerScore = document.querySelector('#player')
 const computerScore = document.querySelector('#computer')
+playerScore.innerText = `playerScore: ${playerWon}`
+computerScore.innerText = `computerScore: ${computerWon}`
+let add = document.querySelector('h2')
 
+add.addEventListener('click', start)
+
+function start() {
+    playerWon = 0
+    computerWon = 0
+    round = 0
+    playerChoice
+    playerScore.innerText = `playerScore: ${playerWon}`
+    computerScore.innerText = `computerScore: ${computerWon}`
+    div.innerText = ''
+}
+// Random computer Choices
 function getComputerChoice() {
     const random = Math.random()
     if(random < 0.33){
@@ -49,9 +64,14 @@ scissors.addEventListener('click', scissorsStart)
 function rockStart() {
     playerChoice = 'rock'
     if(round >= 5){
-        div.innerHTML = `Game over ${playerWon} vs ${computerWon}`
+        if(add ===' <div id="add"></div>'){
+            console.log('fucked')
+        }else {
+            console.log('fucker')
+            add.innerText = 'Restart'
+        }
     }else {
-        div.innerHTML = `${playRound(playerChoice,getComputerChoice())}`
+        div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
         computerScore.innerText = `computerScore: ${computerWon}`
         round += 1
@@ -60,9 +80,17 @@ function rockStart() {
 function paperStart() {
     playerChoice = 'paper'
     if(round === 5){
-        div.innerHTML = `Game over ${playerWon} vs ${computerWon}`
+        div.innerText = `Game over ${playerWon} vs ${computerWon}`
+
+        if(add ===' <div id="add"></div>'){
+            console.log('fuck')
+        }else {
+            console.log('fuckede')
+            add.innerText = 'Restart'
+        }
+        
     }else {
-        div.innerHTML = `${playRound(playerChoice,getComputerChoice())}`
+        div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
         computerScore.innerText = `computerScore: ${computerWon}`
         round += 1
@@ -71,9 +99,15 @@ function paperStart() {
 function scissorsStart() {
     playerChoice = 'scissors'
     if(round === 5){
-    div.innerHTML = `Game over ${playerWon} vs ${computerWon}`
+    div.innerText = `Game over ${playerWon} vs ${computerWon}`
+    if(add ===' <div id="add"></div>'){
+        console.log('fuck')
     }else {
-        div.innerHTML = `${playRound(playerChoice,getComputerChoice())}`
+        console.log('fuckede')
+        add.innerText = 'Restart'
+    }
+    }else {
+        div.innerText = `${playRound(playerChoice,getComputerChoice())}`
         playerScore.innerText = `playerScore: ${playerWon}`
         computerScore.innerText = `computerScore: ${computerWon}`
         round += 1

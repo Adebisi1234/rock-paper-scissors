@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    color: white;
+    background: black;
+}
+body {
+    background-color: black;
+}
+
+h2 {
+    text-align: center;
+}
+#result {
+    border: 1px solid white;
+    width: 99vw;
+    height: 70vh;
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.container {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+}
+
+button {
+    flex: 1;
+    height: 10vh;
+    border: 1px solid white;
+}
+button:hover {
+    background-color: rgba(182, 174, 174, 0.411);
+}
+
+div.player {
+    background: red;
+}
+.flex {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+}
